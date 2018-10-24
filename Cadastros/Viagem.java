@@ -6,8 +6,6 @@ public class Viagem {
 	private int minutosInicio;
 	private int horaTermino;
 	private int minutosTermino;
-	private int duracaoHoras;
-	private int duracaoMinutos;
 	private int duracaoTotalMinutos;
 
 	private Viagem(int hora, int minutos) {
@@ -16,8 +14,8 @@ public class Viagem {
 	}
 
 	protected static Viagem obterViagem(int hora, int minutos) {
-		Viagem v = new Viagem (hora, minutos);
-		return v;
+		Viagem viagem = new Viagem (hora, minutos);
+		return viagem;
 	}
 
 	public int getHoraInicio() {
@@ -42,8 +40,8 @@ public class Viagem {
 	}
 
 	public int getDuracaoHoras() {
-		DuracaoHoras duracaoHora = new DuracaoHoras();
-		return duracaoHora.duracaoHoras(horaInicio, horaTermino, minutosInicio, minutosTermino);
+		DuracaoHoras duracaoHora = new DuracaoHoras(horaInicio, horaTermino, minutosInicio, minutosTermino);
+		return duracaoHora.compute();
 	}
 
 	public int getDuracaoMinutos() {
